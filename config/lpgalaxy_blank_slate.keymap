@@ -2,8 +2,12 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/modifiers.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/bt.h>
 
-#define LCG(keycode) APPLY_MODS(MOD_LCTL | MOD_LGUI, keycode)
+#define SNAP_LEFT LG(LA(LEFT))
+#define SNAP_RIGHT LG(LA(RIGHT))
+#define DESK_LEFT LC(LEFT)
+#define DESK_RIGHT LC(RIGHT)
 
 / {
     keymap {
@@ -20,9 +24,9 @@
 
         layer_1 {
             bindings = <
-                &kp ESC    &kp KP_NLCK   &kp LC(SPACE)  &kp UP      &kp LS(SPACE)  &kp DLLR   &kp EQUAL  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp CARET      &kp LC(BKSP)
-                &kp TAB    &kp LC(F)     &kp LEFT       &kp DOWN    &kp RIGHT      &kp PRCNT  &kp CARET  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_MINUS   &kp KP_PLUS
-                &kp LSHFT  &kp LC(Z)     &kp LC(X)      &kp LC(C)   &kp LC(V)      &kp LA(H)  &kp PRINTSCREEN   &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_SLASH   &kp KP_MULTIPLY
+                &kp ESC    &kp KP_NLCK   &kp LG(SPACE)  &kp UP      &kp LS(SPACE)  &kp DLLR   &kp EQUAL  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp CARET      &kp LG(BKSP)
+                &kp TAB    &kp LG(F)     &kp LEFT       &kp DOWN    &kp RIGHT      &kp PRCNT  &kp CARET  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_MINUS   &kp KP_PLUS
+                &kp LSHFT  &kp LG(Z)     &kp LG(X)      &kp LG(C)   &kp LG(V)      &kp LA(H)  &kp PRINTSCREEN   &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_SLASH   &kp KP_MULTIPLY
                 &trans     &kp LCTRL     &kp LALT       &kp LGUI    &to 1          &kp RET    &kp SPACE  &kp KP_ENTER &kp KP_N0 &kp KP_DOT &kp KP_MULTIPLY &kp LCTRL
             >;
         };
@@ -38,10 +42,10 @@
 
         layer_3 {
             bindings = <
-                &kp TILDE  &kp LCG(LEFT) &kp LS(TAB) &kp F4     &kp TAB      &kp LCG(RIGHT) &kp LG(E)  &kp LG(LEFT) &kp LG(UP)   &kp LG(RIGHT) &kp LG(DOWN) &kp DEL
+                &kp TILDE  &kp SNAP_LEFT &kp LS(TAB) &kp F4     &kp TAB      &kp SNAP_RIGHT &kp LG(E)  &kp DESK_LEFT &kp LG(UP)   &kp DESK_RIGHT &kp LG(DOWN) &kp DEL
                 &kp CAPS   &kp QUOT          &kp LBKT    &kp LBRC   &kp LPAR     &kp BSLH         &kp FSLH   &kp RPAR      &kp RBRC      &kp RBKT      &kp DQT       &kp QUOT
                 &kp K_PWR  &kp K_SLEEP       &kp SYS_WAKE &kp HOME  &trans       &trans           &trans      &kp K_CALC    &kp LT        &kp GT        &kp COLON     &kp LSHFT
-                &to 0      &kp LCTRL         &kp LALT    &kp LGUI   &kp LALT     &kp LCTRL        &trans      &trans        &trans        &trans        &trans        &kp LC(RIGHT)
+                &to 0      &kp LCTRL         &kp LALT    &kp LGUI   &kp LALT     &kp LCTRL        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &kp DESK_RIGHT
             >;
         };
 
