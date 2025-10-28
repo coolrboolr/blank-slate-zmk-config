@@ -4,13 +4,15 @@ manifest:
       url-base: https://github.com/petejohanson
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main        # or a custom branch like refactor/rgb-underglow-rework if it exists
+      remote: petejohanson
+      revision: refactor/rgb-underglow-rework
       import: app/west.yml
     - name: blank-slate-zmk-module
       remote: petejohanson
       revision: main
+
   self:
     path: config
