@@ -34,7 +34,7 @@
 
         layer_2 {
             bindings = <
-                &kp TILDE          &kp EXCL           &kp AT             &kp HASH           &kp DLLR           &kp PRCNT         &kp CARET        &kp AMPS          &kp STAR          &kp LPAR          &kp RPAR          &kp DEL
+                &kp TILDE          &kp EXCL           &kp AT             &kp HASH           &kp DLLR           &kp PRCNT         &kp CARET        &kp AMPS          &kp STAR          &kp LPAR          &kp RPAR          &kp LA(BKSP)
                 &kp CAPS           &kp F1             &kp F2             &kp F3             &kp F4             &kp F5            &kp F6           &kp UNDER         &kp EQUAL         &kp LT            &kp GT            &kp LPAR
                 &kp LSHFT          &kp F7             &kp F8             &kp F9             &kp F10            &kp F11           &kp F12          &kp C_MUTE        &kp C_PLAY_PAUSE  &kp C_NEXT        &kp PG_UP         &mt LSHFT C_VOL_UP
                 &to 0              &kp LCTRL          &kp LALT           &kp LGUI           &trans             &kp RET           &kp SPACE        &mo 3             &kp PRINTSCREEN   &kp C_PREV        &kp PG_DN         &mt LCTRL C_VOL_DN
@@ -43,7 +43,7 @@
 
         layer_3 {
             bindings = <
-                &kp TILDE          &kp DESK_LEFT      &kp LS(TAB)        &kp LC(UP)         &kp TAB            &kp DESK_RIGHT     &kp LG(E)         &kp SNAP_LEFT     &kp LG(UP)        &kp SNAP_RIGHT    &kp LG(DOWN)      &kp LA(BKSP)
+                &kp TILDE          &kp DESK_LEFT      &kp LS(TAB)        &kp LC(UP)         &kp TAB            &kp DESK_RIGHT     &kp LG(E)         &kp SNAP_LEFT     &kp LG(UP)        &kp SNAP_RIGHT    &kp LG(DOWN)      &kp DEL
                 &kp CAPS           &kp QUOT           &kp LBKT           &kp LBRC           &kp LPAR           &kp BSLH           &kp FSLH          &kp RPAR          &kp RBRC          &kp RBKT          &kp DQT           &kp QUOT
                 &bt BT_CLR_ALL     &kp HOME           &kp SYS_WAKE       &kp SLEEP_LOCK     &trans             &trans             &bt BT_SEL 0      &kp LG(SPACE)     &kp LT            &kp GT            &kp COLON         &kp LSHFT
                 &to 0              &kp LCTRL          &kp LALT           &kp LGUI           &kp LALT           &kp LCTRL          &bt BT_CLR        &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3      &bt BT_SEL 4 
