@@ -1,0 +1,14 @@
+/* behaviors.dtsi
+ * Custom behavior nodes for this keymap. Included by the keymap file.
+ */
+
+/ {
+  behaviors {
+    ht_180: hold_tap_180 {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HT180";
+      tapping-term-ms = <180>;
+      quick-tap-ms = <100>;
+    };
+  };
+};
