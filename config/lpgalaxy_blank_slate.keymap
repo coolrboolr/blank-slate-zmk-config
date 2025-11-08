@@ -4,69 +4,94 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define SNAP_LEFT LG(LA(LEFT))
-#define SNAP_RIGHT LG(LA(RIGHT))
-#define SNAP_UP LG(LA(UP))
-#define SNAP_DOWN LG(LA(DOWN))
-#define DESK_LEFT LC(LG(LEFT))
-#define DESK_RIGHT LC(LG(RIGHT))
-#define SLEEP_LOCK LG(LC(Q))
+/* -----------------------------------------------------
+ * Custom key aliases
+ * --------------------------------------------------- */
+#define SNAP_LEFT      LG(LA(LEFT))
+#define SNAP_RIGHT     LG(LA(RIGHT))
+#define SNAP_UP        LG(LA(UP))
+#define SNAP_DOWN      LG(LA(DOWN))
+#define DESK_LEFT      LC(LG(LEFT))
+#define DESK_RIGHT     LC(LG(RIGHT))
+#define SLEEP_LOCK     LG(LC(Q))
 
-/ {
+/* -----------------------------------------------------
+ * Mouse movement / scroll tuning
+ * --------------------------------------------------- */
+&mmv {
+    time-to-max-speed-ms = <250>;      // faster acceleration ramp (default 300)
+    acceleration-exponent = <1>;       // linear response (try 1.3–1.5 for smoother)
+};
+
+&msc {
+    time-to-max-speed-ms = <200>;
+    acceleration-exponent = <1>;
+};
+
+/* -----------------------------------------------------
+ * Layers
+ * --------------------------------------------------- */
+ / {
     keymap {
         compatible = "zmk,keymap";
 
+        /* ---------------------- Layer 0: Base ---------------------- */
         default_layer {
             bindings = <
-                &kp ESC            &kp Q              &kp W              &kp E              &kp R              &kp T              &kp Y              &kp U              &kp I             &kp O              &kp P              &kp BKSP
-                &kp TAB            &kp A              &kp S              &kp D              &kp F              &kp G              &kp H              &kp J              &kp K             &kp L              &kp SEMI           &kp QUOT
-                &kp LSHFT          &kp Z              &kp X              &kp C              &kp V              &kp B              &kp N              &kp M              &kp COMMA         &kp DOT           &kp UP             &mt LSHFT RET
-                &mo 1              &kp LCTRL          &kp LALT           &kp LGUI           &mo 2              &lt 5 RET          &lt 4 SPACE        &mo 3              &kp FSLH          &kp LEFT          &kp DOWN           &mt RGUI RIGHT
+                &kp ESC         &kp Q         &kp W          &kp E          &kp R           &kp T        &kp Y           &kp U        &kp I             &kp O           &kp P           &kp BKSP
+                &kp TAB         &kp A         &kp S          &kp D          &kp F           &kp G        &kp H           &kp J        &kp K             &kp L           &kp SEMI        &kp QUOT
+                &kp LSHFT       &kp Z         &kp X          &kp C          &kp V           &kp B        &kp N           &kp M        &kp COMMA         &kp DOT         &kp UP          &mt LSHFT RET
+                &mo 1           &kp LCTRL     &kp LALT       &kp LGUI       &mo 2           &lt 5 RET    &lt 4 SPACE     &mo 3        &kp FSLH          &kp LEFT        &kp DOWN        &mt RGUI RIGHT
             >;
         };
 
+        /* ---------------------- Layer 1: Numbers / Nav ---------------------- */
         layer_1 {
             bindings = <
-                &kp ESC            &kp LA(LEFT)       &kp LA(LEFT)       &kp UP             &kp LA(RIGHT)    &kp DLLR           &kp EQUAL          &kp N7              &kp N8           &kp N9         &kp CARET          &kp LG(BKSP)
-                &kp TAB            &kp LG(F)          &kp LEFT           &kp DOWN           &kp RIGHT         &kp PRCNT          &kp CARET          &kp N4              &kp N5           &kp N6         &kp KP_MINUS       &kp KP_PLUS
-                &kp LSHFT          &kp LG(Z)          &kp LG(X)          &kp LG(C)          &kp LG(V)         &trans             &kp PRINTSCREEN    &kp N1              &kp N2           &kp N3         &kp KP_SLASH       &kp KP_MULTIPLY
-                &trans             &kp LCTRL          &kp LALT           &kp LGUI           &kp LA(LSFT)             &kp LSFT           &kp SPACE          &kp KP_ENTER        &kp KP_N0        &kp KP_DOT     &kp KP_MULTIPLY    &kp RGUI
+                &kp ESC         &kp LA(LEFT)  &kp LA(LEFT)   &kp UP         &kp LA(RIGHT)   &kp DLLR     &kp EQUAL       &kp N7        &kp N8           &kp N9          &kp CARET       &kp LG(BKSP)
+                &kp TAB         &kp LG(F)     &kp LEFT       &kp DOWN       &kp RIGHT       &kp PRCNT    &kp CARET       &kp N4        &kp N5           &kp N6          &kp KP_MINUS    &kp KP_PLUS
+                &kp LSHFT       &kp LG(Z)     &kp LG(X)      &kp LG(C)      &kp LG(V)       &trans       &kp PRINTSCREEN &kp N1        &kp N2           &kp N3          &kp KP_SLASH    &kp KP_MULTIPLY
+                &trans          &kp LCTRL     &kp LALT       &kp LGUI       &kp LA(LSFT)    &kp LSFT     &kp SPACE       &kp KP_ENTER  &kp KP_N0        &kp KP_DOT      &kp KP_MULTIPLY &kp RGUI
             >;
         };
-    
+
+        /* ---------------------- Layer 2: Symbols / Media ---------------------- */
         layer_2 {
             bindings = <
-                &kp TILDE          &kp EXCL           &kp AT             &kp HASH           &kp DLLR           &kp PRCNT         &kp CARET        &kp AMPS          &kp STAR          &kp LPAR          &kp RPAR          &kp LA(BKSP)
-                &kp CAPS           &kp F1             &kp F2             &kp F3             &kp F4             &kp F5            &kp F6           &kp UNDER         &kp EQUAL         &kp LT            &kp GT            &kp LPAR
-                &kp LSHFT          &kp F7             &kp F8             &kp F9             &kp F10            &kp F11           &kp F12          &kp C_MUTE        &kp C_PLAY_PAUSE  &kp C_NEXT        &kp PG_UP         &mt LSHFT C_VOL_UP
-                &to 0              &kp LCTRL          &kp LALT           &kp LGUI           &trans             &kp RET           &kp SPACE        &mo 3             &kp PRINTSCREEN   &kp C_PREV        &kp PG_DN         &mt LCTRL C_VOL_DN
+                &kp TILDE       &kp EXCL      &kp AT         &kp HASH       &kp DLLR        &kp PRCNT    &kp CARET       &kp AMPS      &kp STAR         &kp LPAR        &kp RPAR        &kp LA(BKSP)
+                &kp CAPS        &kp F1        &kp F2         &kp F3         &kp F4          &kp F5       &kp F6          &kp UNDER     &kp EQUAL        &kp LT          &kp GT          &kp LPAR
+                &kp LSHFT       &kp F7        &kp F8         &kp F9         &kp F10         &kp F11      &kp F12         &kp C_MUTE    &kp C_PLAY_PAUSE &kp C_NEXT      &kp PG_UP       &mt LSHFT C_VOL_UP
+                &to 0           &kp LCTRL     &kp LALT       &kp LGUI       &trans          &kp RET      &kp SPACE       &mo 3         &kp PRINTSCREEN  &kp C_PREV      &kp PG_DN       &mt LCTRL C_VOL_DN
             >;
         };
 
+        /* ---------------------- Layer 3: Window / BT ---------------------- */
         layer_3 {
             bindings = <
-                &kp TILDE          &kp DESK_LEFT      &kp LS(TAB)        &kp LC(UP)         &kp TAB            &kp DESK_RIGHT     &kp LG(E)         &kp SNAP_LEFT     &kp SNAP_UP       &kp SNAP_RIGHT    &kp SNAP_DOWN     &kp DEL
-                &kp CAPS           &kp QUOT           &kp LBKT           &kp LBRC           &kp LPAR           &kp BSLH           &kp FSLH          &kp RPAR          &kp RBRC          &kp RBKT          &kp DQT           &kp QUOT
-                &trans             &trans             &trans             &kp SLEEP_LOCK     &trans             &trans             &bt BT_SEL 0      &kp LG(SPACE)     &kp LT            &kp GT            &kp COLON         &kp LSHFT
-                &to 0              &kp LCTRL          &kp LALT           &kp LGUI           &kp LALT           &kp LCTRL          &kp HOME          &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3      &bt BT_SEL 4 
+                &kp TILDE       &kp DESK_LEFT &kp LS(TAB)    &kp LC(UP)     &kp TAB         &kp DESK_RIGHT &kp LG(E)     &kp SNAP_LEFT &kp SNAP_UP      &kp SNAP_RIGHT  &kp SNAP_DOWN   &kp DEL
+                &kp CAPS        &kp QUOT      &kp LBKT       &kp LBRC       &kp LPAR        &kp BSLH       &kp FSLH      &kp RPAR      &kp RBRC         &kp RBKT        &kp DQT         &kp QUOT
+                &trans          &trans        &trans         &kp SLEEP_LOCK &trans          &trans         &bt BT_SEL 0  &kp LG(SPACE) &kp LT           &kp GT          &kp COLON       &kp LSHFT
+                &to 0           &kp LCTRL     &kp LALT       &kp LGUI       &kp LALT        &kp LCTRL      &kp HOME      &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4
             >;
         };
 
+        /* ---------------------- Layer 4: Mouse ---------------------- */
         layer_4 {
             bindings = <
-                &bt BT_CLR_ALL     &kp C_BRI_UP      &kp LS(TAB)       &msc SCRL_UP       &kp TAB           &trans            &trans           &mkp LCLK         &mmv MOVE_UP      &mkp RCLK         &trans            &trans
-                &bt BT_CLR         &kp C_BRI_DN      &msc SCRL_LEFT    &msc SCRL_DOWN     &msc SCRL_RIGHT   &trans            &trans           &mmv MOVE_LEFT    &mmv MOVE_DOWN    &mmv MOVE_RIGHT   &trans            &trans
-                &sys_reset         &trans            &trans            &trans             &trans            &trans            &trans           &to 0             &to 1             &to 2             &to 3             &to 4
-                &to 0              &trans            &trans            &bootloader        &kp LALT          &kp LCTRL         &trans           &trans            &trans            &kp LEFT          &kp DOWN          &kp RGUI
+                &bt BT_CLR_ALL &kp C_BRI_UP   &kp LS(TAB)    &msc SCRL_UP   &kp TAB         &trans     &trans            &mkp LCLK      &mmv MOVE_UP    &mkp RCLK       &trans          &trans
+                &bt BT_CLR     &kp C_BRI_DN   &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &trans     &trans            &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT &trans          &trans
+                &sys_reset     &trans         &trans         &trans         &trans          &trans     &trans            &to 0          &to 1           &to 2           &to 3           &to 4
+                &to 0          &trans         &trans         &bootloader    &kp LALT        &kp LCTRL  &trans            &trans         &trans          &kp LEFT        &kp DOWN        &kp RGUI
             >;
         };
 
+        /* ---------------------- Layer 5: Mirror / Alt base ---------------------- */
         layer_5 {
             bindings = <
-                &kp BKSP           &kp P              &kp O              &kp I              &kp U              &kp Y              &kp T              &kp R              &kp E              &kp W              &kp Q              &kp BKSP
-                &kp TAB            &kp SEMI           &kp L              &kp K              &kp J              &kp H              &kp G              &kp F              &kp D              &kp S              &kp A              &kp QUOT
-                &kp LSHFT          &kp RET            &kp DOT            &kp COMMA          &kp M              &kp N              &kp B              &kp V              &kp C              &kp X              &kp Z              &mt LSHFT RET
-                &to 0              &kp LCTRL          &kp LALT           &kp LGUI           &mo 2              &trans             &trans             &mo 3              &kp FSLH           &kp LEFT           &kp DOWN           &kp LC(RIGHT)
+                &kp BKSP       &kp P          &kp O          &kp I          &kp U           &kp Y        &kp T           &kp R          &kp E           &kp W           &kp Q           &kp BKSP
+                &kp TAB        &kp SEMI       &kp L          &kp K          &kp J           &kp H        &kp G           &kp F          &kp D           &kp S           &kp A           &kp QUOT
+                &kp LSHFT      &kp RET        &kp DOT        &kp COMMA      &kp M           &kp N        &kp B           &kp V          &kp C           &kp X           &kp Z           &mt LSHFT RET
+                &to 0          &kp LCTRL      &kp LALT       &kp LGUI       &mo 2           &trans       &trans          &mo 3          &kp FSLH        &kp LEFT        &kp DOWN        &kp LC(RIGHT)
             >;
         };
     };
