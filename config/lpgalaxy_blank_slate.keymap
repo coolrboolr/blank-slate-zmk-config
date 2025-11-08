@@ -6,6 +6,8 @@
 
 #define SNAP_LEFT LG(LA(LEFT))
 #define SNAP_RIGHT LG(LA(RIGHT))
+#define SNAP_UP LG(LA(UP))
+#define SNAP_DOWN LG(LA(DOWN))
 #define DESK_LEFT LC(LG(LEFT))
 #define DESK_RIGHT LC(LG(RIGHT))
 #define SLEEP_LOCK LG(LC(Q))
@@ -43,17 +45,17 @@
 
         layer_3 {
             bindings = <
-                &kp TILDE          &kp DESK_LEFT      &kp LS(TAB)        &kp LC(UP)         &kp TAB            &kp DESK_RIGHT     &kp LG(E)         &kp SNAP_LEFT     &kp LG(UP)        &kp SNAP_RIGHT    &kp LG(DOWN)      &kp DEL
+                &kp TILDE          &kp DESK_LEFT      &kp LS(TAB)        &kp LC(UP)         &kp TAB            &kp DESK_RIGHT     &kp LG(E)         &kp SNAP_LEFT     &kp SNAP_UP       &kp SNAP_RIGHT    &kp SNAP_DOWN     &kp DEL
                 &kp CAPS           &kp QUOT           &kp LBKT           &kp LBRC           &kp LPAR           &kp BSLH           &kp FSLH          &kp RPAR          &kp RBRC          &kp RBKT          &kp DQT           &kp QUOT
-                &bt BT_CLR_ALL     &kp HOME           &kp SYS_WAKE       &kp SLEEP_LOCK     &trans             &trans             &bt BT_SEL 0      &kp LG(SPACE)     &kp LT            &kp GT            &kp COLON         &kp LSHFT
-                &to 0              &kp LCTRL          &kp LALT           &kp LGUI           &kp LALT           &kp LCTRL          &bt BT_CLR        &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3      &bt BT_SEL 4 
+                &trans             &trans             &kp SYS_WAKE       &kp SLEEP_LOCK     &trans             &trans             &bt BT_SEL 0      &kp LG(SPACE)     &kp LT            &kp GT            &kp COLON         &kp LSHFT
+                &to 0              &kp LCTRL          &kp LALT           &kp LGUI           &kp LALT           &kp LCTRL          &kp HOME          &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3      &bt BT_SEL 4 
             >;
         };
 
         layer_4 {
             bindings = <
-                &to 0              &kp C_BRI_UP      &kp LS(TAB)       &msc SCRL_UP       &kp TAB           &trans            &trans           &mkp LCLK         &mmv MOVE_UP      &mkp RCLK         &trans            &trans
-                &trans             &kp C_BRI_DN      &msc SCRL_LEFT    &msc SCRL_DOWN     &msc SCRL_RIGHT   &trans            &trans           &mmv MOVE_LEFT    &mmv MOVE_DOWN    &mmv MOVE_RIGHT   &trans            &trans
+                &bt BT_CLR_ALL     &kp C_BRI_UP      &kp LS(TAB)       &msc SCRL_UP       &kp TAB           &trans            &trans           &mkp LCLK         &mmv MOVE_UP      &mkp RCLK         &trans            &trans
+                &bt BT_CLR         &kp C_BRI_DN      &msc SCRL_LEFT    &msc SCRL_DOWN     &msc SCRL_RIGHT   &trans            &trans           &mmv MOVE_LEFT    &mmv MOVE_DOWN    &mmv MOVE_RIGHT   &trans            &trans
                 &sys_reset         &kp K_APP         &trans            &trans             &trans            &trans            &trans           &to 0             &to 1             &to 2             &to 3             &to 4
                 &to 0              &kp K_MENU        &trans            &trans             &kp LALT          &kp LCTRL         &trans           &trans            &trans            &kp LEFT          &kp DOWN          &kp RGUI
             >;
