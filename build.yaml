@@ -1,7 +1,7 @@
 ---
 include:
   - board: lpgalaxy_blank_slate
-    snippet: default
+    snippet: studio-rpc-usb-uart
     artifact-name: vaire_blank_slate
   - board: lpgalaxy_blank_slate
     snippet: studio-rpc-usb-uart
