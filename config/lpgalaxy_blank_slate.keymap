@@ -54,7 +54,7 @@
                 &kp ESC         &kp LA(LEFT)  &kp LA(LEFT)   &kp UP         &kp LA(RIGHT)   &kp DLLR     &kp EQUAL       &kp N7        &kp N8           &kp N9          &kp CARET       &kp LG(BKSP)
                 &kp TAB         &kp LG(F)     &kp LEFT       &kp DOWN       &kp RIGHT       &kp PRCNT    &kp CARET       &kp N4        &kp N5           &kp N6          &kp KP_MINUS    &kp KP_PLUS
                 &kp LSHFT       &kp LG(Z)     &kp LG(X)      &kp LG(C)      &kp LG(V)       &trans       &kp PRINTSCREEN &kp N1        &kp N2           &kp N3          &kp KP_SLASH    &kp KP_MULTIPLY
-                &trans          &kp LCTRL     &kp LALT       &kp LGUI       &kp LA(LSFT)    &kp LSFT     &kp SPACE       &kp KP_ENTER  &kp KP_N0        &kp KP_DOT      &kp KP_MULTIPLY &kp RGUI
+                &trans          &kp LCTRL     &kp LALT       &kp LGUI       &kp LA(LSFT)    &kp LSFT     &kp RCTRL       &kp KP_ENTER  &kp KP_N0        &kp KP_DOT      &kp KP_MULTIPLY &kp RGUI
             >;
         };
 
