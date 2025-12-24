@@ -32,4 +32,6 @@ And then comment out the line in `config/lpgalaxy_blank_slate.conf`:
 # CONFIG_ZMK_PM_SOFT_OFF=y
 ```
 
+# Keymap Viewer
 
+You can view your keymap using the [keymap viewer](https://htmlpreview.github.io/?https://github.com/coolrboolr/blank-slate-zmk-config/blob/main/keymap-viewer.html).
