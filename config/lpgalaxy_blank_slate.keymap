@@ -15,8 +15,8 @@
 #define SNAP_RIGHT     LG(LA(RIGHT))
 #define SNAP_UP        LG(LA(UP))
 #define SNAP_DOWN      LG(LA(DOWN))
-#define DESK_LEFT      LC(LEFT)
-#define DESK_RIGHT     LC(RIGHT)
+#define DESK_LEFT      LC(LG(LEFT))
+#define DESK_RIGHT     LC(LG(RIGHT))
 #define SLEEP_LOCK     LG(LC(Q))
 /* Alt+H is mapped to the screenshot tool on the host computer. */
 #define SCREENSHOT     LA(H)
