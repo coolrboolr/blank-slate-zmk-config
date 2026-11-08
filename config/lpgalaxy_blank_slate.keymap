@@ -11,10 +11,10 @@
 /* -----------------------------------------------------
  * Custom key aliases
  * --------------------------------------------------- */
-#define SNAP_LEFT      LG(LA(LEFT))
-#define SNAP_RIGHT     LG(LA(RIGHT))
-#define SNAP_UP        LG(LA(UP))
-#define SNAP_DOWN      LG(LA(DOWN))
+#define SNAP_LEFT      LC(LA(LEFT))
+#define SNAP_RIGHT     LC(LA(RIGHT))
+#define SNAP_UP        LC(LA(UP))
+#define SNAP_DOWN      LC(LA(DOWN))
 #define DESK_LEFT      LC(LG(LEFT))
 #define DESK_RIGHT     LC(LG(RIGHT))
 #define SLEEP_LOCK     LG(LC(Q))
