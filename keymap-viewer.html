@@ -551,6 +551,9 @@
 #define SLEEP_LOCK     LG(LC(Q))
 #define SCREENSHOT     LA(H)
 #define EMOJI          LC(LG(SPACE))
+#define APP_EXPOSE     LC(DOWN)
+#define SHOT_TOOLBAR   LG(LS(N5))
+#define SHOT_CLIP      LC(LG(LS(N4)))
 &mmv { time-to-max-speed-ms = <250>; acceleration-exponent = <1>; };
 &msc { time-to-max-speed-ms = <200>; acceleration-exponent = <1>; };
 &lt { quick-tap-ms = <200>; };
@@ -568,34 +571,34 @@
   };
   layer_1 {
     bindings = <
-      &kp ESC         &kp LG(LEFT)  &kp LA(LEFT)   &kp UP         &kp LA(RIGHT)   &kp DLLR     &kp EQUAL       &kp N7        &kp N8           &kp N9          &kp CARET       &kp LG(BKSP)
-      &kp TAB         &kp LG(F)     &kp LEFT       &kp DOWN       &kp RIGHT       &kp PRCNT    &kp CARET       &kp N4        &kp N5           &kp N6          &kp KP_MINUS    &kp KP_PLUS
-      &kp LSHFT       &kp LG(Z)     &kp LG(X)      &kp LG(C)      &kp LG(V)       &kp SCREENSHOT &kp PRINTSCREEN &kp N1        &kp N2           &kp N3          &kp KP_SLASH    &kp KP_MULTIPLY
-      &trans          &kp LCTRL     &kp LALT       &kp LGUI       &kp LA(LSFT)    &kp LSFT     &kp RCTRL       &kp KP_ENTER  &kp KP_N0        &kp KP_DOT      &kp KP_MULTIPLY &kp RGUI
+      &kp ESC         &kp LG(LEFT)  &kp LA(LEFT)   &kp UP         &kp LA(RIGHT)   &kp LG(RIGHT) &kp EQUAL       &kp N7        &kp N8           &kp N9          &kp CARET       &kp LG(BKSP)
+      &kp TAB         &kp LG(F)     &kp LEFT       &kp DOWN       &kp RIGHT       &kp PRCNT    &kp DLLR        &kp N4        &kp N5           &kp N6          &kp MINUS       &kp KP_PLUS
+      &kp LSHFT       &kp LG(Z)     &kp LG(X)      &kp LG(C)      &kp LG(V)       &kp SCREENSHOT &kp SHOT_TOOLBAR &kp N1        &kp N2           &kp N3          &kp KP_SLASH    &kp KP_MULTIPLY
+      &trans          &kp LCTRL     &kp LALT       &kp LGUI       &kp LA(LSFT)    &kp LSFT     &kp RCTRL       &kp KP_ENTER  &kp N0           &kp KP_DOT      &kp COMMA       &kp RGUI
     >;
   };
   layer_2 {
     bindings = <
       &kp TILDE       &kp EXCL      &kp AT         &kp HASH       &kp DLLR        &kp PRCNT    &kp CARET       &kp AMPS      &kp STAR         &kp LPAR        &kp RPAR        &kp LA(BKSP)
-      &kp CAPS        &kp F1        &kp F2         &kp F3         &kp F4          &kp F5       &kp F6          &kp UNDER     &kp EQUAL        &kp LT          &kp GT          &kp LPAR
+      &kp CAPS        &kp F1        &kp F2         &kp F3         &kp F4          &kp F5       &kp F6          &kp UNDER     &kp EQUAL        &kp LT          &kp GT          &kp MINUS
       &kp LSHFT       &kp F7        &kp F8         &kp F9         &kp F10         &kp F11      &kp F12         &kp C_MUTE    &kp C_PLAY_PAUSE &kp C_NEXT      &kp PG_UP       &mt LSHFT C_VOL_UP
-      &to 0           &kp LCTRL     &kp LALT       &kp LGUI       &trans          &kp RET      &kp SPACE       &mo 3         &kp PRINTSCREEN  &kp C_PREV      &kp PG_DN       &mt LCTRL C_VOL_DN
+      &to 0           &kp LCTRL     &kp LALT       &kp LGUI       &trans          &kp RET      &kp SPACE       &mo 3         &kp SHOT_CLIP    &kp C_PREV      &kp PG_DN       &mt LCTRL C_VOL_DN
     >;
   };
   layer_3 {
     bindings = <
       &kp GRAVE       &kp DESK_LEFT &kp LS(TAB)    &kp LC(UP)     &kp TAB         &kp DESK_RIGHT &kp SNAP_FILL &kp SNAP_LEFT &kp SNAP_UP      &kp SNAP_RIGHT  &kp SNAP_DOWN   &kp DEL
       &kp CAPS        &kp QUOT      &kp LBKT       &kp LBRC       &kp LPAR        &kp BSLH       &kp FSLH      &kp RPAR      &kp RBRC         &kp RBKT        &kp DQT         &kp QUOT
-      &trans          &trans        &trans         &kp SLEEP_LOCK &kp EMOJI       &trans         &bt BT_SEL 0  &kp LG(SPACE) &kp LT           &kp GT          &kp COLON       &kp LSHFT
-      &to 0           &kp LCTRL     &kp LALT       &kp LGUI       &kp LALT        &kp LCTRL      &kp HOME      &trans        &bt BT_SEL 1     &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4
+      &trans          &trans        &trans         &kp SLEEP_LOCK &kp EMOJI       &kp GLOBE      &bt BT_SEL 0  &kp LG(SPACE) &kp LT           &kp GT          &kp COLON       &kp LSHFT
+      &to 0           &kp LCTRL     &kp LALT       &kp LGUI       &kp LALT        &kp LCTRL      &kp APP_EXPOSE &trans        &bt BT_SEL 1     &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4
     >;
   };
   layer_4 {
     bindings = <
-      &bt BT_CLR_ALL &kp C_BRI_UP   &kp LS(TAB)    &msc SCRL_UP   &kp TAB         &trans     &trans            &mkp LCLK      &mmv MOVE_UP    &mkp RCLK       &trans          &trans
-      &bt BT_CLR     &kp C_BRI_DN   &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &trans     &trans            &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT &trans          &trans
-      &sys_reset     &soft_off_hold &trans         &trans         &out OUT_TOG    &studio_unlock &trans            &to 0          &to 1           &to 2           &to 3           &to 4
-      &to 0          &trans         &trans         &bootloader    &kp LALT        &kp LCTRL  &trans            &trans         &trans          &kp LEFT        &kp DOWN        &kp RGUI
+      &td_clr_all    &kp C_BRI_UP   &kp LS(TAB)    &msc SCRL_UP   &kp TAB         &trans     &trans            &mkp LCLK      &mmv MOVE_UP    &mkp RCLK       &mkp MCLK       &trans
+      &td_clr        &kp C_BRI_DN   &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &trans     &trans            &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT &trans          &trans
+      &td_reset      &soft_off_hold &trans         &td_usb        &td_ble         &studio_unlock &trans            &to 0          &to 1           &to 2           &to 3           &to 4
+      &to 0          &trans         &trans         &td_boot       &kp LALT        &kp LCTRL  &trans            &trans         &trans          &kp LEFT        &kp DOWN        &kp RGUI
     >;
   };
   layer_5 {
