@@ -545,6 +545,7 @@
 #define SNAP_RIGHT     LC(LA(RIGHT))
 #define SNAP_UP        LC(LA(UP))
 #define SNAP_DOWN      LC(LA(DOWN))
+#define SNAP_FILL      LC(LA(RET))
 #define DESK_LEFT      LC(LG(LEFT))
 #define DESK_RIGHT     LC(LG(RIGHT))
 #define SLEEP_LOCK     LG(LC(Q))
@@ -583,7 +584,7 @@
   };
   layer_3 {
     bindings = <
-      &kp GRAVE       &kp DESK_LEFT &kp LS(TAB)    &kp LC(UP)     &kp TAB         &kp DESK_RIGHT &kp LG(E)     &kp SNAP_LEFT &kp SNAP_UP      &kp SNAP_RIGHT  &kp SNAP_DOWN   &kp DEL
+      &kp GRAVE       &kp DESK_LEFT &kp LS(TAB)    &kp LC(UP)     &kp TAB         &kp DESK_RIGHT &kp SNAP_FILL &kp SNAP_LEFT &kp SNAP_UP      &kp SNAP_RIGHT  &kp SNAP_DOWN   &kp DEL
       &kp CAPS        &kp QUOT      &kp LBKT       &kp LBRC       &kp LPAR        &kp BSLH       &kp FSLH      &kp RPAR      &kp RBRC         &kp RBKT        &kp DQT         &kp QUOT
       &trans          &trans        &trans         &kp SLEEP_LOCK &kp EMOJI       &trans         &bt BT_SEL 0  &kp LG(SPACE) &kp LT           &kp GT          &kp COLON       &kp LSHFT
       &to 0           &kp LCTRL     &kp LALT       &kp LGUI       &kp LALT        &kp LCTRL      &kp HOME      &trans        &bt BT_SEL 1     &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4
