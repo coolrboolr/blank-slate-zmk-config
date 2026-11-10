@@ -228,12 +228,22 @@
       PRINTSCREEN: "PRT", "C_BRI_UP": "BRI↑", "C_BRI_DN": "BRI↓", "C_VOL_UP": "VOL↑", "C_VOL_DN": "VOL↓",
       "C_MUTE": "MUTE", "C_PLAY_PAUSE": "PLAY", "C_NEXT": "NEXT", "C_PREV": "PREV",
       "PG_UP": "PGUP", "PG_DN": "PGDN", "KP_ENTER": "ENT", "KP_N0": "0", "KP_DOT": ".",
-      "KP_MINUS": "-", "KP_PLUS": "+", "KP_MULTIPLY": "*", "KP_SLASH": "/"
+      "KP_MINUS": "-", "KP_PLUS": "+", "KP_MULTIPLY": "*", "KP_SLASH": "/",
+      MINUS: "-", COMMA: ",", DOT: ".", EQUAL: "=", UNDER: "_", COLON: ":", GRAVE: "`", GLOBE: "GLOBE"
+    };
+    const ALIAS_LABELS = {
+      SNAP_LEFT: "SNAP←", SNAP_RIGHT: "SNAP→", SNAP_UP: "SNAP↑", SNAP_DOWN: "SNAP↓", SNAP_FILL: "FILL",
+      DESK_LEFT: "DESK←", DESK_RIGHT: "DESK→", SLEEP_LOCK: "LOCK", SCREENSHOT: "SHOT", EMOJI: "EMOJI",
+      APP_EXPOSE: "EXPOSE", SHOT_TOOLBAR: "SHOT BAR", SHOT_CLIP: "SHOT CLIP"
+    };
+    const BEHAVIOR_LABELS = {
+      td_boot: "BOOT×2", td_reset: "RST×2", td_clr_all: "BTCLRALL×2", td_clr: "BTCLR×2",
+      td_usb: "USB×2", td_ble: "BLE×2", soft_off_hold: "OFF HOLD", studio_unlock: "STUDIO"
     };
 
     // produce compact modifier glyphs like LG(LEFT) -> ⌘←, LA(BKSP) -> ⌥BKSP
     function compactModifierCall(str) {
-      const m = str.match(/^([A-Z]{2})\(([^)]+)\)$/);
+      const m = str.match(/^([A-Z]{2})\((.+)\)$/);
       if (!m) return null;
       const mod = MOD_ICONS[m[1]] || m[1];
       const inner = prettyKey(m[2]);
@@ -244,6 +254,8 @@
       if (!k) return k;
       if (ARROWS[k]) return ARROWS[k];
       if (SIMPLE_KEYS[k]) return SIMPLE_KEYS[k];
+      if (ALIAS_LABELS[k]) return ALIAS_LABELS[k];
+      if (/^N\d$/.test(k)) return k.slice(1);
       const withMod = compactModifierCall(k);
       if (withMod) return withMod;
       if (/^F\d{1,2}$/.test(k)) return k;
@@ -370,7 +382,9 @@
         case 'sys_reset': return 'RST';
         case 'bootloader': return '🥾LOAD';
         default: {
-          const raw = [op.op.replace(/^unknown_/, '&'), ...op.args].join(' ');
+          const name = op.op.replace(/^unknown_/, '');
+          if (BEHAVIOR_LABELS[name]) return BEHAVIOR_LABELS[name];
+          const raw = ['&' + name, ...op.args].join(' ');
           return raw;
         }
       }
